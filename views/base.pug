@@ -1,0 +1,26 @@
+doctype html 
+
+html 
+    head 
+        meta(charset='UTF-8')
+        meta(name='viewport' content='width=device-width, initial-scale=1.0' )
+        title Loopey | Loop Pack Subscription Service
+        link(rel='stylesheet' href='/css/style.css')
+        link(rel='shortcut icon' type='image/png' href='/img/favicon.png')
+        link(rel='stylesheet' href='https://fonts.googleapis.com/css?family=Lato:300,300i,700')
+
+    body
+        // Header
+        include _header
+
+        //Content
+        block content 
+            h1 Placeholder
+
+        include _footer
+
+        script(src='https://js.stripe.com/v3/' crossorigin='anonymous')
+        script(src='/js/bundle.js')
+        
+
+        //- script(src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.25.0/axios.min.js" integrity="sha512-/Q6t3CASm04EliI1QyIDAA/nDo9R8FQ/BULoUFyN4n/BDdyIxeH7u++Z+eobdmr11gG5D/6nPFyDlnisDwhpYA==" crossorigin="anonymous" referrerpolicy="no-referrer")

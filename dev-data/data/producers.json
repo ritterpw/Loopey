@@ -1,0 +1,42 @@
+[
+  {
+    "id": 1,
+    "Name": "XTNDO P",
+    "Style": "Dark Vintage",
+    "ArstistType": "Yung Mal, Lil Gotit, Pyrex Whippa",
+    "Description": "I'm a producer that likes to produced from producervilled, Pd. My productions produces producers that producer production.",
+    "YoutubeLink": "https://www.youtube.com/channel/UCE8iI7HWw1dJacD0wZcgu5g",
+    "ImageLink": "./dev-data/img/Lawst.jpg",
+    "SupscriptionPrice": 19.99
+  },
+  {
+    "id": 2,
+    "Name": "Lawst",
+    "Style": "Beautiful Trap",
+    "ArstistType": "Wheezy, Lil Keed, Young Thug",
+    "Description": "I'm a producer that likes to produced from producervilled, Pd. My productions produces producers that producer production.",
+    "YoutubeLink": "https://www.youtube.com/channel/UCMfZD_uqhP1mB2vpPF1QwjA",
+    "ImageLink": "./dev-data/img/Lawst.jpg",
+    "SupscriptionPrice": 29.99
+  },
+  {
+    "id": 3,
+    "Name": "Jon Jonson",
+    "Style": "Beautiful Trap",
+    "ArstistType": "Wheezy, Lil Keed, Young Thug",
+    "Description": "I'm a producer that likes to produced from producervilled, Pd. My productions produces producers that producer production.",
+    "YoutubeLink": "https://www.youtube.com/channel/UCMfZD_uqhP1mB2vpPF1QwjA",
+    "ImageLink": "./dev-data/img/Lawst.jpg",
+    "SupscriptionPrice": 29.99
+  },
+  {
+    "id": 4,
+    "Name": "Cockus Galgotron",
+    "Style": "Beautiful Trap",
+    "ArstistType": "Wheezy, Lil Keed, Young Thug",
+    "Description": "I'm a producer that likes to produced from producervilled, Pd. My productions produces producers that producer production.",
+    "YoutubeLink": "https://www.youtube.com/channel/UCMfZD_uqhP1mB2vpPF1QwjA",
+    "ImageLink": "./dev-data/img/Lawst.jpg",
+    "SupscriptionPrice": 29.99
+  }
+]
