@@ -134,7 +134,6 @@ producerSchema.methods.changedPasswordAfter = async function (JWTTimeStamp) {
       this.passwordChangedAt.getTime() / 1000,
       10
     );
-    console.log(this.passwordChangedAt);
     return JWTTimeStamp < changedTimeStap;
   }
   return false;

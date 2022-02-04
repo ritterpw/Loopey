@@ -1,14 +1,12 @@
 const express = require('express');
 const {
   getAllUsers,
-  createNewUser,
   getOneUser,
   updateUser,
   deleteUser,
   updateMe,
   deleteMe,
   getMe,
-  getUser,
   uploadUserPhoto,
   resizeUserPhoto,
 } = require('../controllers/userController');

@@ -7,6 +7,7 @@ const mongoSanitize = require('express-mongo-sanitize');
 const xss = require('xss-clean');
 const hpp = require('hpp');
 const cookieParser = require('cookie-parser');
+const compression = require('compression');
 
 const producerRouter = require('./routes/producerRoutes');
 const userRouter = require('./routes/userRoutes');
@@ -104,12 +105,7 @@ app.use(
   })
 );
 
-//Middleware to show the request headers that holds token
-app.use((req, res, next) => {
-  console.log(req.cookies);
-
-  next();
-});
+app.use(compression());
 
 app.use('/', viewRouter);
 app.use('/api/v1/producers', producerRouter);
