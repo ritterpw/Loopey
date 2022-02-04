@@ -28,7 +28,6 @@ if (userDataForm)
     form.append('firstName', document.getElementById('firstName').value);
     form.append('email', document.getElementById('email').value);
     form.append('imageLink', document.getElementById('imageLink').files[0]);
-    console.log(form);
 
     updateSettings(form, 'data');
   });

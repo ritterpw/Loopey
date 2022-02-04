@@ -63,7 +63,6 @@ exports.getMe = (req, res, next) => {
 };
 
 exports.updateMe = catchAsync(async (req, res, next) => {
-  console.log(req.file);
   if (req.body.password || req.body.passwordConfirmed) {
     return next(
       new AppError(
@@ -78,8 +77,6 @@ exports.updateMe = catchAsync(async (req, res, next) => {
     new: true,
     runValidators: true,
   });
-
-  console.log(updatedUser);
 
   res.status(200).json({
     status: 'success',

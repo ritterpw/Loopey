@@ -34,7 +34,6 @@ exports.getCheckoutSession = catchAsync(async (req, res, next) => {
     ],
   });
 
-  console.log(session);
   res.status(200).json({
     status: 'success',
     session,
@@ -43,11 +42,7 @@ exports.getCheckoutSession = catchAsync(async (req, res, next) => {
 
 exports.createSubscriptionCheckout = catchAsync(async (req, res, next) => {
   // This is only TEMPORARY, because it's UNSECURE: everyone can make bookings without paying
-  console.log(req.query);
   const { producer, user, price } = req.query;
-  console.log(producer);
-  console.log(user);
-  console.log(price);
 
   if (!producer && !user && !price) return next();
   await Subscription.create({ producer, user, price });
