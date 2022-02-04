@@ -34,8 +34,6 @@ exports.getCheckoutSession = catchAsync(async (req, res, next) => {
     ],
   });
 
-  console.log(req.params);
-
   console.log(session);
   res.status(200).json({
     status: 'success',
