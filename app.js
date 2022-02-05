@@ -18,6 +18,7 @@ const subscriptionRouter = require('./routes/subscriptionRoutes');
 
 const AppError = require('./utils/appError');
 const errorHandler = require('./controllers/errorController');
+const subscriptionController = require('./controllers/subscriptionController');
 
 const app = express();
 
@@ -37,7 +38,11 @@ app.use((req, res, next) => {
 
 app.use(express.static(path.join(__dirname, 'public')));
 
-const whitelist = ['https://checkout.stripe.com/*', 'https://*.stripe.com/*'];
+const whitelist = [
+  'https://checkout.stripe.com/*',
+  'https://*.stripe.com/*',
+  'https://js.stripe.com/*',
+];
 app.use((req, res, next) => {
   res.header('Access-Control-Allow-Origin', whitelist);
   res.header(
@@ -64,7 +69,7 @@ app.use(
           'http:',
           'blob:',
           'https://*.mapbox.com',
-          'https://js.stripe.com',
+          'https://js.stripe.com/*',
           'https://m.stripe.network',
           'https://*.cloudflare.com',
           'https://checkout.stripe.com/*',
@@ -72,7 +77,7 @@ app.use(
         ],
         frameSrc: [
           "'self'",
-          'https://js.stripe.com',
+          'https://js.stripe.com/*',
           'https://checkout.stripe.com/*',
           'https://*.stripe.com/*',
         ],
@@ -122,6 +127,11 @@ const limiter = rateLimit({
   message: 'Too many requests from this IP, please try again in an hour!',
 });
 app.use('/api', limiter);
+app.post(
+  '/webhook-checkout',
+  express.raw({ type: 'application/json' }),
+  subscriptionController.webhookCheckout
+);
 
 app.use(express.json({ limit: '10kb' }));
 app.use(express.urlencoded({ extended: true, limit: '10kb' }));

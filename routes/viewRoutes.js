@@ -5,12 +5,7 @@ const subscriptionController = require('../controllers/subscriptionController');
 
 const router = express.Router();
 
-router.get(
-  '/',
-  subscriptionController.createSubscriptionCheckout,
-  authController.isLoggedIn,
-  viewController.getOverview
-);
+router.get('/', authController.isLoggedIn, viewController.getOverview);
 router.get('/login', authController.isLoggedIn, viewController.getLoginForm);
 router.get(
   '/producer/:slug',
