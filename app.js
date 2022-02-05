@@ -29,6 +29,12 @@ app.set('views', path.join(__dirname, 'views'));
 app.use(cors());
 app.options('*', cors());
 
+app.use((req, res, next) => {
+  res.header('Cross-Origin-Resource-Policy', 'cross-origin');
+  res.header('Access-Control-Allow-Origin', '*');
+  next();
+});
+
 app.use(express.static(path.join(__dirname, 'public')));
 
 const whitelist = ['https://checkout.stripe.com/*', 'https://*.stripe.com/*'];
