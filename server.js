@@ -32,11 +32,20 @@ const server = app.listen(port, () => {
   console.log(`running on port ${port}`);
 });
 
+app.set('port', port);
+
 //on unhandled rejection, close server and shut down application
 process.on('unhandledRejection', (err) => {
   console.log(err.name, err.message);
   console.log('unhandled code rejection. SHUTTING DOWN...');
   server.close(() => {
     process.exit(1);
+  });
+});
+
+process.on('SIGTERM', () => {
+  console.log('SIGTERM RECIEVED SHUTTING DOWN GRACEFULLY');
+  server.close(() => {
+    console.log('process terminated');
   });
 });
