@@ -26,6 +26,9 @@ app.enable('trust proxy');
 app.set('view engine', 'pug');
 app.set('views', path.join(__dirname, 'views'));
 
+app.use(cors());
+app.options('*', cors());
+
 app.use(express.static(path.join(__dirname, 'public')));
 
 const whitelist = ['https://checkout.stripe.com/*', 'https://*.stripe.com/*'];
@@ -102,9 +105,6 @@ app.use(
     },
   })
 );
-
-app.use(cors());
-app.options('*', cors());
 
 if (process.env.NODE_ENV === 'development') {
   app.use(morgan('dev'));
