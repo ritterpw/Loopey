@@ -1,10 +1,13 @@
 /* eslint-disable */
 import '@babel/polyfill';
 import { login, logout } from './login';
+import { signUp } from './signUp';
+
 import { updateSettings } from './updateSettings';
 import { subscribeToProducer } from './stripe';
 
 const loginForm = document.querySelector('.form--login');
+const signUpForm = document.querySelector('.form--signup');
 const logOutBtn = document.querySelector('.nav__el--logout');
 const userDataForm = document.querySelector('.form-user-data');
 const userPasswordForm = document.querySelector('.form-user-password');
@@ -12,10 +15,23 @@ const subscribeBtn = document.getElementById('subscribe-to-producer');
 
 if (loginForm) {
   loginForm.addEventListener('submit', (e) => {
+    console.log('hi');
     e.preventDefault();
     const email = document.getElementById('email').value;
     const password = document.getElementById('password').value;
     login(email, password);
+  });
+}
+
+if (signUpForm) {
+  signUpForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const firstName = document.getElementById('first-name').value;
+    const lastName = document.getElementById('last-name').value;
+    const email = document.getElementById('email').value;
+    const password = document.getElementById('password').value;
+    const passwordConfirmed = document.getElementById('password-confirm').value;
+    signUp(firstName, lastName, email, password, passwordConfirmed);
   });
 }
 

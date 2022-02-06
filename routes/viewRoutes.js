@@ -7,6 +7,8 @@ const router = express.Router();
 
 router.get('/', authController.isLoggedIn, viewController.getOverview);
 router.get('/login', authController.isLoggedIn, viewController.getLoginForm);
+router.get('/signUp', viewController.getsignUpForm);
+
 router.get(
   '/producer/:slug',
   authController.isLoggedIn,
