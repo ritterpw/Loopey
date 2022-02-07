@@ -7,15 +7,14 @@ import { updateSettings } from './updateSettings';
 import { subscribeToProducer } from './stripe';
 
 const loginForm = document.querySelector('.form--login');
-const signUpForm = document.querySelector('.form--signup');
 const logOutBtn = document.querySelector('.nav__el--logout');
 const userDataForm = document.querySelector('.form-user-data');
 const userPasswordForm = document.querySelector('.form-user-password');
 const subscribeBtn = document.getElementById('subscribe-to-producer');
+const signupForm = document.querySelector('.form--signup');
 
 if (loginForm) {
   loginForm.addEventListener('submit', (e) => {
-    console.log('hi');
     e.preventDefault();
     const email = document.getElementById('email').value;
     const password = document.getElementById('password').value;
@@ -23,8 +22,8 @@ if (loginForm) {
   });
 }
 
-if (signUpForm) {
-  signUpForm.addEventListener('submit', (e) => {
+if (signupForm) {
+  signupForm.addEventListener('submit', (e) => {
     e.preventDefault();
     const firstName = document.getElementById('first-name').value;
     const lastName = document.getElementById('last-name').value;
