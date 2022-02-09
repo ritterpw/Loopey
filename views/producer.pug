@@ -21,11 +21,12 @@ block content
                 .heading-box__detail
                     svg.heading-box__icon
                         use(xlink:href='/img/icons.svg#icon-clock')
-                    span.heading-box__text= `Subscription: ${producer.subscriptionOffer.subscriptionName}`
+                    span.heading-box__text= `Subscription: ${producer.subscriptionName}`
                 .heading-box__detail
                     svg.heading-box__icon
                         use(xlink:href='/img/icons.svg#icon-map-pin')
                     span.heading-box__text= producer.country
+
 
     section.section-description
         .overview-box
@@ -33,7 +34,7 @@ block content
                 .overview-box__group
                     h2.heading-secondary.ma-bt-lg Subscription Details
 
-                    +overviewBox('Min. Samples Per Pack', producer.subscriptionOffer.minSamplesPerPack, 'calendar')
+                    +overviewBox('Min. Samples Per Pack', producer.minSamplesPerPack, 'calendar')
                     +overviewBox('Sample Styles', producer.prodStyle, 'trending-up')
                     +overviewBox('Similar To', `${producer.artistType}`, 'user')
                     - if(producer.ratingsQuantity > 0)
@@ -78,7 +79,7 @@ block content
             img.cta__img.cta__img--2(src=`/img/tours/tour-2-3.jpg`, alt='Tour picture')
             .cta__content
                 h2.heading-secondary What are you waiting for?
-                p.cta__text= `${producer.subscriptionOffer.minSamplesPerPack} samples per week. Infinite beats to make. Sign up today!`
+                p.cta__text= `${producer.minSamplesPerPack} samples per week. Infinite beats to make. Sign up today!`
                 if user
                     button.btn.btn--green.span-all-rows#subscribe-to-producer(data-producer-id=`${producer.id}`) Subscribe
                 else 

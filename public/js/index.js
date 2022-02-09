@@ -85,6 +85,7 @@ if (producerForm) {
     const minSamplesPerPack =
       document.getElementById('minSamplesPerPack').value;
     const artistType = document.getElementById('artistType').value;
+    const youtubeLink = document.getElementById('youtubeLink').value;
     const subscriptionName = document.getElementById('subscriptionName').value;
     const description = document.getElementById('description').value;
     const price = document.getElementById('price').value;
@@ -94,6 +95,7 @@ if (producerForm) {
       prodStyle,
       minSamplesPerPack,
       artistType,
+      youtubeLink,
       subscriptionName,
       description,
       price

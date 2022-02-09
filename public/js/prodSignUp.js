@@ -7,6 +7,7 @@ export const producerSignUp = async (
   prodStyle,
   minSamplesPerPack,
   artistType,
+  youtubeLink,
   subscriptionName,
   description,
   price
@@ -20,6 +21,7 @@ export const producerSignUp = async (
         prodStyle,
         minSamplesPerPack,
         artistType,
+        youtubeLink,
         subscriptionName,
         description,
         price,

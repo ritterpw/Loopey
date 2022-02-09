@@ -24,7 +24,7 @@ exports.getCheckoutSession = catchAsync(async (req, res, next) => {
         price_data: {
           currency: 'usd',
           product_data: { name: producer.producerName },
-          unit_amount: producer.subscriptionOffer.price * 100,
+          unit_amount: producer.price * 100,
           recurring: { interval: 'month' },
         },
         quantity: 1,

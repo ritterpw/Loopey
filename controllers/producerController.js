@@ -61,10 +61,12 @@ exports.signUp = catchAsync(async (req, res, next) => {
     producerName: req.body.producerName,
     prodStyle: req.body.prodStyle,
     minSamplesPerPack: req.body.minSamplesPerPack,
-    artistType: req.body.artistType,
     subscriptionName: req.body.subscriptionName,
-    description: req.body.description,
     price: req.body.price,
+
+    artistType: req.body.artistType,
+    youtubeLink: req.body.youtubeLink,
+    description: req.body.description,
   });
 });
 exports.getAllProducers = factory.getAll(Producer);

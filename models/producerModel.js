@@ -36,11 +36,9 @@ const producerSchema = mongoose.Schema({
   },
   ratingsQuantity: { type: Number, default: 0 },
   samplePackURL: String,
-  subscriptionOffer: {
-    subscriptionName: { type: String },
-    price: { type: Number },
-    minSamplesPerPack: { type: Number },
-  },
+  subscriptionName: { type: String },
+  price: { type: Number },
+  minSamplesPerPack: { type: Number },
   subscribers: [
     {
       type: [mongoose.Schema.ObjectId],

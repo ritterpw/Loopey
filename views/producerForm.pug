@@ -17,12 +17,15 @@ block content
         .form__group.ma-bt-md
           label.form__label(for='artistType') What three artists/producers are you compared to most
           input#artistType.form__input(type='text', required, minlength='8')
+        .form__group.ma-bt-md
+          label.form__label(for='youtubeLink') URL for your Producer Youtube Channel
+          input#youtubeLink.form__input(type='text', required)  
         .form__group.ma-bt-md 
           label.form__label(for='subscriptionName') Subscription Name
-          input#subscriptionName.form__input(type='text', required, minlength='8')
+          input#subscriptionName.form__input(type='text', required)
         .form__group.ma-bt-md 
           label.form__label(for='description') Description
-          input#description.form__input(type='text', required, minlength='8')
+          input#description.form__input(type='text', required, minlength='3')
         .form__group.ma-bt-md 
           label.form__label(for='price') Price
           input#price.form__input(type='text',placeholder='10', required)   
