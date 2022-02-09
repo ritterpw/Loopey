@@ -2,24 +2,27 @@
 import axios from 'axios';
 import { showAlert } from './alert';
 
-export const signUp = async (
-  firstName,
-  lastName,
-  email,
-  password,
-  passwordConfirmed,
-  role
+export const producerSignUp = async (
+  producerName,
+  prodStyle,
+  minSamplesPerPack,
+  artistType,
+  subscriptionName,
+  description,
+  price
 ) => {
   try {
     const res = await axios({
       method: 'POST',
-      url: `/api/v1/users/signUp`,
+      url: `/api/v1/producers/signUp`,
       data: {
-        firstName,
-        lastName,
-        email,
-        password,
-        passwordConfirmed,
+        producerName,
+        prodStyle,
+        minSamplesPerPack,
+        artistType,
+        subscriptionName,
+        description,
+        price,
       },
     });
 

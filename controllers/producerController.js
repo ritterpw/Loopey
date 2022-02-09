@@ -56,6 +56,17 @@ exports.resizeProducerImages = catchAsync(async (req, res, next) => {
   next();
 });
 
+exports.signUp = catchAsync(async (req, res, next) => {
+  const prod = await Producer.create({
+    producerName: req.body.producerName,
+    prodStyle: req.body.prodStyle,
+    minSamplesPerPack: req.body.minSamplesPerPack,
+    artistType: req.body.artistType,
+    subscriptionName: req.body.subscriptionName,
+    description: req.body.description,
+    price: req.body.price,
+  });
+});
 exports.getAllProducers = factory.getAll(Producer);
 
 exports.getOneProducer = factory.getOne(Producer, { path: 'reviews' });

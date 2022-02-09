@@ -22,6 +22,12 @@ router.get(
   viewController.getMyProducers
 );
 
+router.get(
+  '/create-producer',
+  authController.protect,
+  viewController.getProducerForm
+);
+
 router.post(
   '/submit-user-data',
   authController.protect,

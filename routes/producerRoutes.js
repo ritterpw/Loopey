@@ -7,6 +7,7 @@ const {
   deleteOneProducer,
   uploadProducerImages,
   resizeProducerImages,
+  createProducer,
 } = require('../controllers/producerController');
 const authController = require('../controllers/authController');
 const reviewRouter = require('./reviewRoutes');
@@ -23,6 +24,8 @@ router
     authController.restrictTo('admin', 'producer'),
     createNewProducer
   );
+
+router.post('/signUp', createNewProducer);
 
 router
   .route('/:id')

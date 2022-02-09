@@ -2,6 +2,7 @@
 import '@babel/polyfill';
 import { login, logout } from './login';
 import { signUp } from './signUp';
+import { producerSignUp } from './prodSignUp';
 
 import { updateSettings } from './updateSettings';
 import { subscribeToProducer } from './stripe';
@@ -12,6 +13,7 @@ const userDataForm = document.querySelector('.form-user-data');
 const userPasswordForm = document.querySelector('.form-user-password');
 const subscribeBtn = document.getElementById('subscribe-to-producer');
 const signupForm = document.querySelector('.form--signup');
+const producerForm = document.querySelector('.form--producer');
 
 if (loginForm) {
   loginForm.addEventListener('submit', (e) => {
@@ -30,6 +32,7 @@ if (signupForm) {
     const email = document.getElementById('email').value;
     const password = document.getElementById('password').value;
     const passwordConfirmed = document.getElementById('password-confirm').value;
+
     signUp(firstName, lastName, email, password, passwordConfirmed);
   });
 }
@@ -73,3 +76,27 @@ if (subscribeBtn)
     const { producerId } = e.target.dataset;
     subscribeToProducer(producerId);
   });
+
+if (producerForm) {
+  producerForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const producerName = document.getElementById('producerName').value;
+    const prodStyle = document.getElementById('prodStyle').value;
+    const minSamplesPerPack =
+      document.getElementById('minSamplesPerPack').value;
+    const artistType = document.getElementById('artistType').value;
+    const subscriptionName = document.getElementById('subscriptionName').value;
+    const description = document.getElementById('description').value;
+    const price = document.getElementById('price').value;
+
+    producerSignUp(
+      producerName,
+      prodStyle,
+      minSamplesPerPack,
+      artistType,
+      subscriptionName,
+      description,
+      price
+    );
+  });
+}

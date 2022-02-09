@@ -52,6 +52,12 @@ exports.getSignUpForm = (req, res) => {
   });
 };
 
+exports.getProducerForm = (req, res) => {
+  res.status(200).render('producerForm', {
+    title: `Create New Producer`,
+  });
+};
+
 exports.getAccount = (req, res) => {
   res.status(200).render('account', {
     title: 'Your account',
