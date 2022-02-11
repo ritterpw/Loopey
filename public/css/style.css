@@ -146,6 +146,7 @@ body {
   text-transform: uppercase;
   font-weight: 300;
 }
+
 .heading-primary span,
 .heading-tertirary span {
   padding: 1rem 1.5rem;
@@ -171,6 +172,14 @@ body {
   text-align: center;
   width: 70%;
   margin: 0 auto;
+}
+
+.heading-primary-black {
+  font-size: 7rem;
+  text-align: center;
+  width: 70%;
+  margin: 0 auto;
+  color: rgb(69, 69, 69);
 }
 
 .heading-tertirary {
@@ -1135,6 +1144,11 @@ body {
 .card__sub-heading {
   font-size: 1.2rem;
   text-transform: uppercase;
+  font-weight: 700;
+  grid-column: 1 / -1;
+}
+.card__sub-heading-2 {
+  font-size: 1.5rem;
   font-weight: 700;
   grid-column: 1 / -1;
 }

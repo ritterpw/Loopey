@@ -64,6 +64,12 @@ exports.getAccount = (req, res) => {
   });
 };
 
+exports.getLanding = (req, res) => {
+  res.status(200).render('landing', {
+    title: 'Info Page',
+  });
+};
+
 exports.getMyProducers = catchAsync(async (req, res, next) => {
   // 1) Find all bookings
   const subscriptions = await Subscription.find({ user: req.user.id });
