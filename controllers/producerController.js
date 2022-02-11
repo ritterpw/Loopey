@@ -59,12 +59,11 @@ exports.resizeProducerImages = catchAsync(async (req, res, next) => {
 
 exports.signUp = catchAsync(async (req, res, next) => {
   const prod = await Producer.create(req.body);
-  console.log('ugh');
-  console.log(prod._id);
-  console.log(req.user);
+
   try {
     await User.findByIdAndUpdate(req.user._id, {
       myProducer: prod._id,
+      role: 'producer',
     });
   } catch (err) {
     return new AppError(err.message, 500);
