@@ -95,6 +95,20 @@ exports.deleteMe = catchAsync(async (req, res, next) => {
   });
 });
 
+exports.setMyProducer = catchAsync(async (req, res, next) => {
+  console.log(req.body.prod);
+  console.log(req.user.id);
+
+  const updatedUser = await User.findByIdAndUpdate(req.user.id, {
+    myProducer: req.body.prod.id,
+  });
+
+  res.status(200).json({
+    status: 'success',
+    data: updatedUser,
+  });
+});
+
 // Run by the administrator!!
 exports.getAllUsers = factory.getAll(User);
 

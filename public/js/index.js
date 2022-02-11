@@ -82,6 +82,7 @@ if (producerForm) {
     e.preventDefault();
     const producerName = document.getElementById('producerName').value;
     const prodStyle = document.getElementById('prodStyle').value;
+    const country = document.getElementById('country').value;
     const minSamplesPerPack =
       document.getElementById('minSamplesPerPack').value;
     const artistType = document.getElementById('artistType').value;
@@ -93,6 +94,7 @@ if (producerForm) {
     producerSignUp(
       producerName,
       prodStyle,
+      country,
       minSamplesPerPack,
       artistType,
       youtubeLink,

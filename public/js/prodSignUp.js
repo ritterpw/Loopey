@@ -19,6 +19,7 @@ export const producerSignUp = async (
       data: {
         producerName,
         prodStyle,
+        country,
         minSamplesPerPack,
         artistType,
         youtubeLink,

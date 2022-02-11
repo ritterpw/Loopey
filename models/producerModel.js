@@ -48,8 +48,6 @@ const producerSchema = mongoose.Schema({
   createdAt: { type: Date, default: Date.now(), select: false },
 });
 
-//producerSchema.index({})
-
 producerSchema.virtual('reviews', {
   ref: 'Review',
   foreignField: 'producer',

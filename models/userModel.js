@@ -23,6 +23,11 @@ const userSchema = mongoose.Schema({
     type: String,
     default: 'default.jpg',
   },
+  myProducer: {
+    type: mongoose.Schema.ObjectId,
+    unique: true,
+    ref: 'Producer',
+  },
   producerSubscribedTo: [
     {
       producerId: { type: String },
