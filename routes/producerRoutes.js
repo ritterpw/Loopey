@@ -7,6 +7,8 @@ const {
   deleteOneProducer,
   uploadProducerImages,
   resizeProducerImages,
+  createProducer,
+  signUp,
 } = require('../controllers/producerController');
 const authController = require('../controllers/authController');
 const reviewRouter = require('./reviewRoutes');
@@ -15,14 +17,16 @@ const router = express.Router();
 
 router.use('/:producerId/reviews', reviewRouter);
 
+router.route('/').get(authController.protect, getAllProducers);
+// .post(
+//   authController.protect,
+//   authController.restrictTo('admin', 'producer'),
+//   createNewProducer
+// );
+
 router
-  .route('/')
-  .get(authController.protect, getAllProducers)
-  .post(
-    authController.protect,
-    authController.restrictTo('admin', 'producer'),
-    createNewProducer
-  );
+  .route('/signUp')
+  .post(authController.protect, authController.restrictTo('user'), signUp);
 
 router
   .route('/:id')

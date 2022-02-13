@@ -146,6 +146,7 @@ body {
   text-transform: uppercase;
   font-weight: 300;
 }
+
 .heading-primary span,
 .heading-tertirary span {
   padding: 1rem 1.5rem;
@@ -171,6 +172,14 @@ body {
   text-align: center;
   width: 70%;
   margin: 0 auto;
+}
+
+.heading-primary-black {
+  font-size: 7rem;
+  text-align: center;
+  width: 70%;
+  margin: 0 auto;
+  color: rgb(69, 69, 69);
 }
 
 .heading-tertirary {
@@ -1138,6 +1147,11 @@ body {
   font-weight: 700;
   grid-column: 1 / -1;
 }
+.card__sub-heading-2 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  grid-column: 1 / -1;
+}
 .card__text {
   grid-column: 1 / -1;
   font-size: 1.5rem;
@@ -1223,6 +1237,16 @@ body {
 }
 
 .login-form {
+  margin: 0 auto;
+  max-width: 55rem;
+  background-color: #fff;
+  -webkit-box-shadow: 0 2.5rem 8rem 2rem rgba(0, 0, 0, 0.06);
+  box-shadow: 0 2.5rem 8rem 2rem rgba(0, 0, 0, 0.06);
+  padding: 5rem 7rem;
+  border-radius: 5px;
+}
+
+.signUp-form {
   margin: 0 auto;
   max-width: 55rem;
   background-color: #fff;

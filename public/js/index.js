@@ -1,6 +1,9 @@
 /* eslint-disable */
 import '@babel/polyfill';
 import { login, logout } from './login';
+import { signUp } from './signUp';
+import { producerSignUp } from './prodSignUp';
+
 import { updateSettings } from './updateSettings';
 import { subscribeToProducer } from './stripe';
 
@@ -9,6 +12,8 @@ const logOutBtn = document.querySelector('.nav__el--logout');
 const userDataForm = document.querySelector('.form-user-data');
 const userPasswordForm = document.querySelector('.form-user-password');
 const subscribeBtn = document.getElementById('subscribe-to-producer');
+const signupForm = document.querySelector('.form--signup');
+const producerForm = document.querySelector('.form--producer');
 
 if (loginForm) {
   loginForm.addEventListener('submit', (e) => {
@@ -16,6 +21,19 @@ if (loginForm) {
     const email = document.getElementById('email').value;
     const password = document.getElementById('password').value;
     login(email, password);
+  });
+}
+
+if (signupForm) {
+  signupForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const firstName = document.getElementById('first-name').value;
+    const lastName = document.getElementById('last-name').value;
+    const email = document.getElementById('email').value;
+    const password = document.getElementById('password').value;
+    const passwordConfirmed = document.getElementById('password-confirm').value;
+
+    signUp(firstName, lastName, email, password, passwordConfirmed);
   });
 }
 
@@ -58,3 +76,31 @@ if (subscribeBtn)
     const { producerId } = e.target.dataset;
     subscribeToProducer(producerId);
   });
+
+if (producerForm) {
+  producerForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const producerName = document.getElementById('producerName').value;
+    const prodStyle = document.getElementById('prodStyle').value;
+    const country = document.getElementById('country').value;
+    const minSamplesPerPack =
+      document.getElementById('minSamplesPerPack').value;
+    const artistType = document.getElementById('artistType').value;
+    const youtubeLink = document.getElementById('youtubeLink').value;
+    const subscriptionName = document.getElementById('subscriptionName').value;
+    const description = document.getElementById('description').value;
+    const price = document.getElementById('price').value;
+
+    producerSignUp(
+      producerName,
+      prodStyle,
+      country,
+      minSamplesPerPack,
+      artistType,
+      youtubeLink,
+      subscriptionName,
+      description,
+      price
+    );
+  });
+}

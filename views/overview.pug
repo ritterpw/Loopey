@@ -9,7 +9,7 @@ block content
           .card__header
             .card__picture
               .card__picture-overlay &nbsp;
-              img.card__picture-img(src=`/img/tours/tour-5-2.jpg`, alt=`${producer.producerName}`)
+              img.card__picture-img(src=`/img/logo-white.png`, alt=`${producer.producerName}`)
             h3.heading-tertirary
               span= producer.producerName
 
@@ -23,11 +23,11 @@ block content
             .card__data
               svg.card__icon
                 use(xlink:href='/img/icons.svg#icon-calendar')
-              span= `${producer.subscriptionOffer.minSamplesPerPack} minimum samples per week`
+              span= `${producer.minSamplesPerPack} minimum samples per week`
 
           .card__footer
             p
-              span.card__footer-value= `$${producer.subscriptionOffer.price}`
+              span.card__footer-value= `$${producer.price}`
               | 
               span.card__footer-text per Month
             p.card__ratings

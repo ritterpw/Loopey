@@ -46,9 +46,27 @@ exports.getLoginForm = (req, res) => {
     });
 };
 
+exports.getSignUpForm = (req, res) => {
+  res.status(200).render('signUp', {
+    title: `Create New Account`,
+  });
+};
+
+exports.getProducerForm = (req, res) => {
+  res.status(200).render('producerForm', {
+    title: `Create New Producer`,
+  });
+};
+
 exports.getAccount = (req, res) => {
   res.status(200).render('account', {
     title: 'Your account',
+  });
+};
+
+exports.getLanding = (req, res) => {
+  res.status(200).render('landing', {
+    title: 'Info Page',
   });
 };
 

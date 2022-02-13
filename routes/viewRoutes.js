@@ -5,13 +5,11 @@ const subscriptionController = require('../controllers/subscriptionController');
 
 const router = express.Router();
 
-router.get(
-  '/',
-  subscriptionController.createSubscriptionCheckout,
-  authController.isLoggedIn,
-  viewController.getOverview
-);
+router.get('/', authController.isLoggedIn, viewController.getOverview);
 router.get('/login', authController.isLoggedIn, viewController.getLoginForm);
+router.get('/signUp', viewController.getSignUpForm);
+router.get('/landing', viewController.getLanding);
+
 router.get(
   '/producer/:slug',
   authController.isLoggedIn,
@@ -23,6 +21,12 @@ router.get(
   '/my-producers',
   authController.protect,
   viewController.getMyProducers
+);
+
+router.get(
+  '/create-producer',
+  authController.protect,
+  viewController.getProducerForm
 );
 
 router.post(

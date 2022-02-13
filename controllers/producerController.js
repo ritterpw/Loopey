@@ -4,6 +4,7 @@ const Producer = require('../models/producerModel');
 const factory = require('./handlerFactory');
 const catchAsync = require('../utils/catchAsync');
 const AppError = require('../utils/appError');
+const User = require('../models/userModel');
 
 const multerStorage = multer.memoryStorage();
 
@@ -56,6 +57,25 @@ exports.resizeProducerImages = catchAsync(async (req, res, next) => {
   next();
 });
 
+exports.signUp = catchAsync(async (req, res, next) => {
+  const prod = await Producer.create(req.body);
+
+  try {
+    await User.findByIdAndUpdate(req.user._id, {
+      myProducer: prod._id,
+      role: 'producer',
+    });
+  } catch (err) {
+    return new AppError(err.message, 500);
+  }
+
+  res.status(201).json({
+    status: 'success',
+    data: {
+      data: prod,
+    },
+  });
+});
 exports.getAllProducers = factory.getAll(Producer);
 
 exports.getOneProducer = factory.getOne(Producer, { path: 'reviews' });

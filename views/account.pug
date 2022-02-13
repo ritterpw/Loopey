@@ -11,11 +11,16 @@ block content
   main.main
     .user-view
       nav.user-view__menu
+        h5.admin-nav__heading User Settings
         ul.side-nav
           +navItem('#', 'Settings', 'settings', true)
           +navItem('/my-producers', 'My subscriptions', 'briefcase')
-          +navItem('#', 'My reviews', 'star')
-          +navItem('#', 'Billing', 'credit-card')
+          //- +navItem('#', 'Billing', 'credit-card')
+
+        -if (user.role === 'user')
+          h5.admin-nav__heading 
+            ul.side-nav
+              +navItem('/create-producer', 'Create Subscription', 'map')
 
         - if (user.role === 'admin')
           .admin-nav
@@ -27,7 +32,7 @@ block content
               +navItem('#', 'Manage bookings', 'briefcase')
         - if (user.role === 'producer')
           .admin-nav
-            h5.admin-nav__heading Producer
+            h5.admin-nav__heading Producer Settings
             ul.side-nav
               +navItem('#', 'Manage Sample Pack', 'map')
 
