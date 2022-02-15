@@ -7,34 +7,46 @@ const catchAsync = require('../utils/catchAsync');
 const AppError = require('../utils/appError');
 
 exports.getCheckoutSession = catchAsync(async (req, res, next) => {
-  const producer = await Producer.findById(req.params.producerId);
+  let producer = await Producer.findById(req.params.producerId);
 
-  // create a checkout session
-  const session = await stripe.checkout.sessions.create({
-    mode: 'subscription',
-    payment_method_types: ['card'],
-    success_url: `${req.protocol}://${req.get('host')}/my-producers`,
-    cancel_url: `${req.protocol}://${req.get('host')}/producer/${
-      producer.slug
-    }`,
-    customer_email: req.user.email,
-    client_reference_id: req.params.producerId,
-    line_items: [
-      {
-        price_data: {
-          currency: 'usd',
-          product_data: { name: producer.producerName },
-          unit_amount: producer.price * 100,
-          recurring: { interval: 'month' },
-        },
-        quantity: 1,
-      },
-    ],
-  });
+  // const producer = await Producer.updateOne(
+  //   { _id: req.params.producerId },
+  //   {
+  //     $addToSet: { subscribers: req.user._id },
+  //   }
+  // );
+
+  // // create a checkout session
+  // const session = await stripe.checkout.sessions.create({
+  //   mode: 'subscription',
+  //   payment_method_types: ['card'],
+  //   success_url: `${req.protocol}://${req.get('host')}/my-producers`,
+  //   cancel_url: `${req.protocol}://${req.get('host')}/producer/${
+  //     producer.slug
+  //   }`,
+  //   customer_email: req.user.email,
+  //   client_reference_id: req.params.producerId,
+  //   line_items: [
+  //     {
+  //       price_data: {
+  //         currency: 'usd',
+  //         product_data: { name: producer.producerName },
+  //         unit_amount: producer.price * 100,
+  //         recurring: { interval: 'month' },
+  //       },
+  //       quantity: 1,
+  //     },
+  //   ],
+  // });
+  producer = producer._id;
+  const user = req.user._id;
+  const { price } = producer;
+
+  await Subscription.create({ producer, user, price });
 
   res.status(200).json({
     status: 'success',
-    session,
+    producer,
   });
 });
 
